@@ -6,16 +6,47 @@ void main(){
 
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context){
-    return new MaterialApp(
-      title:'login demo',
-      theme: new ThemeData(
-          primarySwatch: Colors.blue ,
+    return MaterialApp(
+      title:'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.pink,
       ),
-      home: new LoginPage(),
+      home:MyHomePage(title:'Flutter Demo Home Page'),
     );
   }
 }
-//https://ssscool.tistory.com/378 참고
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
+
+  @override
+  _MyHomePageState createState()=> _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage>{
+  int _counter = 0;
+  void _incrementCounter(){
+    setState(() {
+      _counter++;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar:AppBar(
+        title:Text(widget.title),
+      ),
+      body:Center(
+
+      )
+    )
+  }
+}
+
+
+//https://yoonjaepark.github.io/2020-01-19/flutter-bottom-navigation
