@@ -42,11 +42,42 @@ class _MyHomePageState extends State<MyHomePage>{
         title:Text(widget.title),
       ),
       body:Center(
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'counts: ',
+            ),
+            Text(
+              '$_counter',
+              style:Theme.of(context).textTheme.display1,
+            ),
+          ],
+        )
 
-      )
-    )
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        onTap:(index) => {},
+        currentIndex: 0,
+        items: [
+          new BottomNavigationBarItem(
+            icon:Icon(Icons.mail),
+            title:Text('First'),
+          ),
+          new BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title:Text('Second')
+          )
+        ]
+      ),
+    );
   }
 }
 
 
-//https://yoonjaepark.github.io/2020-01-19/flutter-bottom-navigation
