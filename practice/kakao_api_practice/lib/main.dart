@@ -40,19 +40,34 @@ class _HttpAppState extends State<HttpApp> {
               : ListView.builder(itemBuilder: (context, index){
                 return Card(
                   child: Container(
-                    child:Column(
+                    //행 하나하나
+                    
+                    child:Row(
                       children:<Widget> [
-                        Text(data[index]['title'].toString()),
-                        Text(data[index]['authors'].toString()),
-                        Text(data[index]['sale_price'].toString()),
-                        Text(data[index]['status'].toString()),
                         Image.network(
                           data[index]['thumbnail'],
                           height: 100,
                           width: 100,
                           fit: BoxFit.contain,
+                        ),
+                        Column(
+                          children: <Widget> [
+                            Container(
+                              width: MediaQuery.of(context).size.width - 150,
+                              //화면에서 이미지 크기 제외
+
+                              child: Text(
+                                data[index]['title'].toString(),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Text('저자 : ${data[index]['authors'].toString()}'),
+                            Text('가격 : ${data[index]['sale_price'].toString()}'),
+                            Text('판매중 : ${data[index]['status'].toString()}'),
+                          ],
                         )
                       ],
+                      mainAxisAlignment: MainAxisAlignment.start,
                     ),
                   ),
                 );
