@@ -21,18 +21,36 @@ class HttpApp extends StatefulWidget {
 class _HttpAppState extends State<HttpApp> {
   String result = '';
   List data;
+  TextEditingController _editingController;
+  ScrollController _scrollController;
+  int page =1;
 
   @override
   void initState(){
     super.initState();
     data = new List();
+    _editingController = new TextEditingController();
+    _scrollController = new ScrollController();
+
+    _scrollController.addListener(() {
+      if(_scrollController.offset >=
+      _scrollController.position.maxScrollExtent &&
+      !_scrollController.position.outOfRange){
+        print('끝');
+        page ++;
+        getJSONData();
+      }
+    });
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Http Example'),
+        title: TextField(controller: _editingController, style: TextStyle(color:Colors.white),
+        keyboardType: TextInputType.text ,
+        decoration: InputDecoration(hintText: '검색어를 입력하세요'),),
       ),
       body: Container(
         child: Center(
@@ -41,7 +59,7 @@ class _HttpAppState extends State<HttpApp> {
                 return Card(
                   child: Container(
                     //행 하나하나
-                    
+
                     child:Row(
                       children:<Widget> [
                         Image.network(
@@ -72,11 +90,16 @@ class _HttpAppState extends State<HttpApp> {
                   ),
                 );
           },
-          itemCount: data.length),
+          itemCount: data.length,
+              controller : _scrollController,
+          ),
+
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: ()  {
+          page=1;
+          data.clear();
          getJSONData();
 
         },
@@ -86,7 +109,7 @@ class _HttpAppState extends State<HttpApp> {
   }
 
   Future<String> getJSONData() async{
-    var url = Uri.parse("https://dapi.kakao.com/v3/search/book?target=title&query=doit");
+    var url = Uri.parse("https://dapi.kakao.com/v3/search/book?target=title&page=$page&query=${_editingController.value.text}");
     var response = await http.get((url),
         headers: {"Authorization": "KakaoAK 8a67d8239fea2f539e73684f665edc18"});
     setState(() {
