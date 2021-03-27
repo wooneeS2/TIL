@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert'; //json데이터 이
 
 void main() => runApp(MyApp());
 
@@ -31,15 +32,20 @@ class _HttpAppState extends State<HttpApp> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          var url = Uri.parse("https://www.google.com");
-          var response = await http.get(url);
-          setState(() {
-            result = response.body;
-          });
+        onPressed: ()  {
+         getJSONData();
+
         },
         child: Icon(Icons.file_download),
       ),
     );
   }
+}
+
+Future<String> getJSONData() async{
+  var url = Uri.parse("https://dapi.kakao.com/v3/search/book?target=title&query=doit");
+  var response = await http.get((url),
+                headers: {"Authorization": "KakaoAK 8a67d8239fea2f539e73684f665edc18"});
+  print(response.body);
+  return "성공";
 }
