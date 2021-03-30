@@ -82,6 +82,7 @@ class _HttpAppState extends State<HttpApp> {
                             Text('저자 : ${data[index]['authors'].toString()}'),
                             Text('가격 : ${data[index]['sale_price'].toString()}'),
                             Text('판매중 : ${data[index]['status'].toString()}'),
+                            //Text('${data[index]['datetime']}'),
                           ],
                         )
                       ],
