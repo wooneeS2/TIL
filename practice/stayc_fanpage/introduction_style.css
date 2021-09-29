@@ -1,0 +1,20 @@
+@import url("index_style.css");
+
+#memberImg img {
+  width: calc(33.333% - 10px);
+  margin: 0 15px 15px 0;
+}
+/* #memberImg img:nth-of-type(3n),
+#memberImg img:last-child {
+  margin-right: 0;
+} */
+
+#memberImg {
+  text-align: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 30px 0;
+  margin-right: auto;
+  margin-left: auto;
+  display: inline;
+}

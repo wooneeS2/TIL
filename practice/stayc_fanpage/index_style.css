@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 상단 메뉴 */
+#topMenu {
+  height: 30px;
+  width: 1200px;
+  padding: 20px 10px 20px 10px;
+}
+
+#topMenu ul li {
+  list-style: none;
+  color: white;
+  background-color: white;
+  float: left;
+  line-height: 30px;
+  vertical-align: middle;
+  text-align: center;
+  box-shadow: 5px 5px #efefef;
+}
+/* TODO:미디어 쿼리 적용해서 반응형으로 만들기 */
+@media (max-width: 480px) {
+  #topMenu ul li {
+    list-style: none;
+    color: red;
+    background-color: black;
+    float: left;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    box-shadow: 5px 5px #efefef;
+  }
+}
+
+#topMenu .menuLink {
+  text-decoration: none;
+  color: #42a855;
+  display: block;
+  width: 200px;
+  font-size: 20px;
+  font-weight: bold;
+  /* 폰트 적용하기 */
+}
+
+#mainTitle {
+  padding-left: 10px;
+  text-decoration: none;
+  color: black;
+  display: inline;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#subTitle {
+  padding-left: 10px;
+  display: inline;
+}
+
+#topMenu .menuLink:hover {
+  color: white;
+  background-color: #42a855;
+}
+
+/* 메인사진*/
+#mainImg {
+  padding: 0 0 0 10px;
+  width: 800px;
+  height: 300px;
+  vertical-align: middle;
+}
+
+/* 본문 */
+#mainArticle {
+  padding: 0 0 10px 10px;
+}
+
+#articleTitle {
+  padding: 0 0 10px 10px;
+}
+
+#footer {
+}
