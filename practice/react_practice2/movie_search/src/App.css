@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+.input-group {
+  text-align: center;
+  width: 100px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.input-group #search_btn {
+  background-color: transparent;
+}
+
+.result {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
