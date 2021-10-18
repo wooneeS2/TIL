@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { BiListCheck, BiSearchAlt2 } from "react-icons/bi";
+import {  BiSearchAlt2 } from "react-icons/bi";
 import axios from "axios";
 
 function SerarchBar({ onClick, onChange }) {
@@ -66,7 +66,7 @@ function App() {
       //console.log(response.data.movieListResult.movieList);
       const newMovieList = response.data.movieListResult.movieList;
 
-      // console.log(result);
+      
       console.log(newMovieList);
       setMovie(newMovieList);
       console.log(movie);
