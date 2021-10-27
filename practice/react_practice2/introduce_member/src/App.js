@@ -7,6 +7,8 @@ function Article({ member }) {
     <div>
       <h2 style={{ color: "#000000" }}>{member.name}</h2>
       <img src={member.img} style={{ width: 200, height: 500 }} />
+      <br />
+      <Link to="/">메인화면</Link>
     </div>
   );
 }
@@ -36,33 +38,37 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Route exact path="/">
-          <h1 style={{ color: "#000000" }}>STAYC</h1>
-          <nav>
-            <Link to="/sieun">
-              <ol>시은</ol>
-            </Link>
-            <Link to="/sumin">
-              <ol>수민</ol>
-            </Link>
-            <Link to="/seeun">
-              <ol>세은</ol>
-            </Link>
-          </nav>
-          <h2 style={{ color: "#000000" }}>멤버 이름 클릭</h2>
-        </Route>
-        <Route exact path="/sieun">
-          <Article member={sieun}></Article>
-        </Route>
-        <Route exact path="/sumin">
-          <Article member={sumin}></Article>
-        </Route>
-        <Route exact path={"/seeun"}>
-          <Article member={seeun}></Article>
-        </Route>
-        {/* <Route path={"*"}>
-          <NotFoundPage></NotFoundPage>
-        </Route> */}
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <h1 style={{ color: "#000000" }}>STAYC</h1>
+              <nav>
+                <Link to="/sieun">
+                  <ol>시은</ol>
+                </Link>
+                <Link to="/sumin">
+                  <ol>수민</ol>
+                </Link>
+                <Link to="/seeun">
+                  <ol>세은</ol>
+                </Link>
+              </nav>
+              <h2 style={{ color: "#000000" }}>멤버 이름 클릭</h2>
+            </Route>
+            <Route exact path="/sieun">
+              <Article member={sieun}></Article>
+            </Route>
+            <Route exact path="/sumin">
+              <Article member={sumin}></Article>
+            </Route>
+            <Route exact path={"/seeun"}>
+              <Article member={seeun}></Article>
+            </Route>
+            <Route>
+              <NotFoundPage></NotFoundPage>
+            </Route>
+          </Switch>
+        </Router>
       </header>
     </div>
   );
