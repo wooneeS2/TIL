@@ -1,0 +1,93 @@
+.timer-background {
+  width: 100%;
+  height: 124px;
+  /*  백그라운드 색 코드를 아래 background-color에 넣어주시면 됩니다 */
+  background-color: #399bfe;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+
+  /* 타이머 부분을 없애고 싶다면 아래 코드의 앞 뒤 /*표시(주석)을 지워주시면됩니다. */
+  /* display: none; */
+}
+
+#timer-main-title {
+  padding-top: 14px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 0;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 14px;
+  align-content: flex-start;
+}
+
+.timer-box {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-component {
+  width: 50px;
+  height: 64px;
+  border-color: #333333;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.timer-title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 28px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.timer-sub-title {
+  font-weight: 400;
+  font-size: 10px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.timer-colon {
+  font-weight: 700;
+  font-size: 32px;
+  color: #333333;
+  padding: 0;
+  margin: 8px;
+  height: 64px;
+}
+
+/* 좁은 타이머의 색을 변경할 경우 아래의 background의 색 코드를 바꾸면 됩니다. */
+.narrow-timer-background {
+  background: #399bfe;
+  width: 100%;
+  height: 46px;
+  display: block;
+}
+
+.narrow-timer-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #333333;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.narrow-timer-time {
+  font-weight: 700;
+  padding: 0;
+}

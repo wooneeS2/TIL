@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="timer.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="timer-background" >
+        <p id="timer-main-title">D-DAY</p>
+            <div class="timer-box">
+
+                <span class="timer-component">
+                <p id="timer-days" class="timer-title" >-</p>
+                <p class="timer-sub-title">일</p>
+                </span>
+                
+                <p class="timer-colon">:</p>
+                
+                <span class="timer-component">
+                <p id="timer-hours" class="timer-title" >-</p>
+                <p class="timer-sub-title">시간</p>
+                </span>
+                
+                <p class="timer-colon">:</p>
+                
+                
+                <span class="timer-component">
+                <p id="timer-minute" class="timer-title" >-</p>
+                <p class="timer-sub-title">분</p>
+                </span>
+                
+                <p class="timer-colon">:</p>
+                
+                <span class="timer-component">
+                <p id="timer-seconds" class="timer-title">-</p>
+                <p class="timer-sub-title">초</p>
+                </span>
+                
+            </div>
+
+    <div class="narrow-timer-background" id="narrow-timer-background">
+      <p class="narrow-timer-title">
+        D-DAY
+        <span class="narrow-timer-time">
+          <span> </span>
+          <span id="narrow-timer-days">-</span>일
+          <span id="narrow-timer-hours">-</span>시간
+          <span id="narrow-timer-minute">-</span>분
+          <span id="narrow-timer-seconds">-</span>초
+        </span>
+      </p>
+    </div>
+    <script src="timer.js"></script>
+  </body>
+</html>
