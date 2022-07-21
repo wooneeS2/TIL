@@ -91,7 +91,7 @@ const counter = ($counter, max) => {
 
 window.onload = () => {
   if (isMain) {
-    setTimeout(() => counter($day, days), 500);
+    setTimeout(() => counter($day, days), 100);
     setTimeout(() => counter($hour, hours), 500);
     setTimeout(() => counter($minute, minutes), 500);
     setTimeout(() => counter($second, sec), 500);
