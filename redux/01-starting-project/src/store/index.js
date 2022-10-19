@@ -1,31 +1,31 @@
-import { createStore } from 'redux';
+import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 const initialState = { counter: 0, showCounter: true };
 
-const counterReducer = (state = initialState, action) => {
-    if (action.type === 'increment') {
-        return { counter: state.counter + 1, showCounter: state.showCounter };
-    }
+//리덕스 툴킷의 createSlice는 리듀서를 만들기 쉽게 해줌
+//값을 자동으로 복사해와서 값을 계속해서 넣어줄 필요가 없음.
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState,
+    reducers: {
+        increment(state) {
+            //리덕스 툴킷의 createSlice는 모든 상태를 변경하지 않게하고 복제함.
+            state.counter++;
+        },
+        decrement(state) {
+            state.counter--;
+        },
+        increase(state, action) {
+            //액션에 ()속에 들어오는걸 payload라함.
+            state.counter += action.payload;
+        },
+        toggleCounter(state) {
+            state.showCounter = !state.showCounter;
+        },
+    },
+});
 
-    //동적으로 변경 가능한 리듀서
-    if (action.type === 'increase') {
-        return {
-            counter: state.counter + action.amount,
-            showCounter: state.showCounter,
-        };
-    }
+const store = configureStore({ reducer: counterSlice.reducer });
 
-    if (action.type === 'decrement') {
-        return { counter: state.counter - 1, showCounter: state.showCounter };
-    }
-
-    if (action.type === 'toggle') {
-        return { showCounter: !state.showCounter, counter: state.counter };
-    }
-
-    return state;
-};
-
-const store = createStore(counterReducer);
-
+export const counterActions = counterSlice.actions;
 export default store;
