@@ -1,35 +1,37 @@
 import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 
 function LastSalesPage() {
     const [sales, setSales] = useState();
-    const [isLoading, setIsLoading] = useState(false);
+
+    const { data, error } = useSWR(
+        'https://nextjs-course-b0221-default-rtdb.firebaseio.com/sales.json'
+    );
+
     useEffect(() => {
-        setIsLoading(true);
-        fetch(
-            'https://nextjs-course-b0221-default-rtdb.firebaseio.com/sales.json'
-        )
-            .then(response => response.json())
-            .then(data => {
-                const transformSales = [];
-                for (const key in data) {
-                    transformSales.push({
-                        id: key,
-                        userName: data[key].userName,
-                        value: data[key].value,
-                    });
-                }
+        if (data) {
+            const transformedSales = [];
+            for (const key in data) {
+                transformedSales.push({
+                    id: key,
+                    userName: data[key].userName,
+                    value: data[key].value,
+                });
+            }
+            setSales(transformedSales);
+        }
+    }, [data]);
 
-                setSales(transformSales);
-                setIsLoading(false);
-            });
-    }, []);
-
-    if (isLoading) {
+    if (!data) {
         return <p>Loading....</p>;
     }
 
+    if (error) {
+        return <p>Faild to load</p>;
+    }
+
     if (!sales) {
-        return <p>No data yet</p>;
+        return <p>Loading...</p>;
     }
 
     return (

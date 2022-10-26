@@ -4,6 +4,7 @@ function UserIdPage(props) {
 
 export default UserIdPage;
 
+//아래 코드는 서버에서만 실행됨.
 export async function getServerSideProps(context) {
     const { params } = context;
     const userId = params.uid;

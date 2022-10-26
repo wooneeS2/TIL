@@ -2,7 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/last-sales": "pages/last-sales.js",
-  "/[uid]": "pages/[uid].js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
+  "/last-sales": "pages/last-sales.js"
 }
